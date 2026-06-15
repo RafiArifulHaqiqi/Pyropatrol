@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 375b4e54200bf4ab8b92f2094df87b1b
+  - enabled: 1
     path: Assets/Scenes/Pyro Patrol.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
