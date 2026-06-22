@@ -18,10 +18,4 @@ public class StarCollect : MonoBehaviour
             }
         }
     }
-
-    public void ResetStar()
-    {
-        collected = false;
-        gameObject.SetActive(true);
-    }
 }
