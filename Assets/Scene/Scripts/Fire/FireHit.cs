@@ -12,21 +12,11 @@ public class FireHit : MonoBehaviour
         {
             isOut = true;
 
+            fireParticle.SetActive(false);
+
             Debug.Log("Api Padam!");
 
-            if (fireParticle != null)
-            {
-                fireParticle.SetActive(false);
-            }
-
-            if (VictoryManager.Instance != null)
-            {
-                VictoryManager.Instance.LevelComplete();
-            }
-            else
-            {
-                Debug.LogError("VictoryManager tidak ditemukan!");
-            }
+            FireManager.Instance.FireExtinguished();
         }
     }
 }
