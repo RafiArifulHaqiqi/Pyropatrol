@@ -2,18 +2,31 @@ using UnityEngine;
 
 public class FireHit : MonoBehaviour
 {
-    private FireController fire;
+    public GameObject fireParticle;
 
-    void Start()
-    {
-        fire = GetComponentInParent<FireController>();
-    }
+    private bool isOut = false;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Water"))
+        if (other.CompareTag("Water") && !isOut)
         {
-            fire.Extinguish();
+            isOut = true;
+
+            Debug.Log("Api Padam!");
+
+            if (fireParticle != null)
+            {
+                fireParticle.SetActive(false);
+            }
+
+            if (VictoryManager.Instance != null)
+            {
+                VictoryManager.Instance.LevelComplete();
+            }
+            else
+            {
+                Debug.LogError("VictoryManager tidak ditemukan!");
+            }
         }
     }
 }

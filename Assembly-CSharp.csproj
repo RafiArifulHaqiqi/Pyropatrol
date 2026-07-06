@@ -81,12 +81,14 @@
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_FrameRateCounter.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshSpawner.cs" />
+    <Compile Include="Assets/Scene/Scripts/Fire/WaterController.cs" />
     <Compile Include="Assets/Scene/Scripts/Player/CarController.cs" />
     <Compile Include="Assets/Scene/Scripts/MainMenuManager.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/CameraController.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark03.cs" />
     <Compile Include="Assets/Loading Games/Toon City Pack/Demo/Scripts/BuildingLights.cs" />
     <Compile Include="Assets/BTM_Assets/BTM_Items_Gems/Scripts/SimpleGemsAnim.cs" />
+    <Compile Include="Assets/Scene/Scripts/UI/VictoryManager.cs" />
     <Compile Include="Assets/Loading Games/Toon City Pack/Demo/Scripts/StreetLight.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/DropdownSample.cs" />
     <Compile Include="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexColorCycler.cs" />
