@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+    [Header("UI")]
+    public SettingsManager settingsManager;
+
     public void StartGame()
     {
         SceneManager.LoadScene("LevelSelect");
@@ -10,12 +13,20 @@ public class MainMenuManager : MonoBehaviour
 
     public void OpenSetting()
     {
-        Debug.Log("Setting");
+        if (settingsManager != null)
+        {
+            settingsManager.OpenSetting();
+        }
     }
 
     public void QuitGame()
     {
-        Application.Quit();
         Debug.Log("Quit Game");
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }

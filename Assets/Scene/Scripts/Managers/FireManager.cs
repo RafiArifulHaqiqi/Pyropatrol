@@ -41,7 +41,7 @@ public class FireManager : MonoBehaviour
     {
         if (fireCounterText != null)
         {
-            fireCounterText.text = "🔥 " + extinguishedFire + " / " + totalFire;
+            fireCounterText.text = $"Api: {extinguishedFire}/{totalFire}";
         }
     }
 }

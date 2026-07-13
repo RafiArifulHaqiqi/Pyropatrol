@@ -18,6 +18,8 @@ public class CarController : MonoBehaviour
 
     Rigidbody rb;
 
+    private bool enginePlaying = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -62,22 +64,41 @@ public class CarController : MonoBehaviour
 
         if (rightButton != null && rightButton.IsPressed)
             turnInput = 1;
+
+        // ENGINE SOUND
+        if (moveInput != 0)
+        {
+            if (!enginePlaying)
+            {
+                AudioManager.Instance.PlayEngine();
+                enginePlaying = true;
+            }
+        }
+        else
+        {
+            if (enginePlaying)
+            {
+                AudioManager.Instance.StopEngine();
+                enginePlaying = false;
+            }
+        }
     }
 
     void Move()
-{
-    rb.linearVelocity = transform.forward * moveInput * moveSpeed;
-}
+    {
+        rb.linearVelocity = transform.forward * moveInput * moveSpeed;
+    }
 
     void Turn()
-{
-    if (moveInput != 0)
     {
-        rb.MoveRotation(
-            rb.rotation *
-            Quaternion.Euler(0,
-            turnInput * turnSpeed * Time.fixedDeltaTime,
-            0));
+        if (moveInput != 0)
+        {
+            rb.MoveRotation(
+                rb.rotation *
+                Quaternion.Euler(
+                    0,
+                    turnInput * turnSpeed * Time.fixedDeltaTime,
+                    0));
+        }
     }
-}
 }

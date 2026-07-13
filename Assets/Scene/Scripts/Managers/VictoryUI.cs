@@ -7,7 +7,8 @@ public class VictoryUI : MonoBehaviour
     public void RetryLevel()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     // Tombol Next Level
@@ -23,7 +24,7 @@ public class VictoryUI : MonoBehaviour
         }
         else
         {
-            Debug.Log("Level terakhir.");
+            Debug.Log("Level berikutnya belum tersedia.");
         }
     }
 
@@ -31,7 +32,6 @@ public class VictoryUI : MonoBehaviour
     public void MainMenu()
     {
         Time.timeScale = 1f;
-
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Main Menu");
     }
 }

@@ -18,6 +18,9 @@ public class VictoryManager : MonoBehaviour
     public Image star2;
     public Image star3;
 
+    [Header("Level")]
+    public int currentLevel = 1;
+
     [Header("Star Time")]
     public float threeStarTime = 30f;
     public float twoStarTime = 45f;
@@ -64,7 +67,32 @@ public class VictoryManager : MonoBehaviour
             }
         }
 
+        // Tampilkan bintang
         ShowStars(finishTime);
+
+        // 🔊 Hentikan musik lalu putar suara Victory
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.StopMusic();
+            AudioManager.Instance.PlayVictory();
+        }
+
+        // Hitung jumlah bintang
+        int stars = 1;
+
+        if (finishTime <= threeStarTime)
+            stars = 3;
+        else if (finishTime <= twoStarTime)
+            stars = 2;
+
+        // Simpan progress
+        if (ProgressManager.Instance != null)
+        {
+            ProgressManager.Instance.SaveStars(currentLevel, stars);
+
+            // Buka level berikutnya
+            ProgressManager.Instance.UnlockLevel(currentLevel + 1);
+        }
 
         if (hudPanel != null)
             hudPanel.SetActive(false);
@@ -77,7 +105,6 @@ public class VictoryManager : MonoBehaviour
 
     void ShowStars(float finishTime)
     {
-        // Matikan semua bintang dulu
         if (star1 != null)
             star1.gameObject.SetActive(false);
 

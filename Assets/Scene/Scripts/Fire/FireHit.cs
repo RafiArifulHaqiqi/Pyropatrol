@@ -12,7 +12,14 @@ public class FireHit : MonoBehaviour
         {
             isOut = true;
 
-            fireParticle.SetActive(false);
+            if (fireParticle != null)
+                fireParticle.SetActive(false);
+
+            // 🔊 Suara api padam
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlayFireOut();
+            }
 
             Debug.Log("Api Padam!");
 

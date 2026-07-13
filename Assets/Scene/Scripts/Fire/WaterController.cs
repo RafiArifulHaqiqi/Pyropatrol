@@ -26,6 +26,10 @@ public class WaterController : MonoBehaviour
 
         if (waterTrigger != null)
             waterTrigger.SetActive(true);
+
+        // ▶ Mulai suara air
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayWater();
     }
 
     // Dipanggil saat tombol TEMBAK dilepas
@@ -36,5 +40,9 @@ public class WaterController : MonoBehaviour
 
         if (waterTrigger != null)
             waterTrigger.SetActive(false);
+
+        // ⏹ Hentikan suara air
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.StopWater();
     }
 }
